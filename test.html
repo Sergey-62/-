@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            margin-left: 50px;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            width: 50%;
+            height: 35%;
+            border: 1px solid white;
+            display: block;
+            border-radius: 15px;
+            background-color: rgb(49, 49, 49);
+        }
+    
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        
+        h2{
+            color: white;
+        }
+    
+        h4{
+            color: white;
+        }
+    
+        span{
+            font-size: 18px;
+            color: white;
+        }
+        .title{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+    
+        label{
+            color: #c0c0c0;
+        }
+    
+        .listnames{
+            display: flex;
+            text-align: center;
+            background-color: rgb(66, 66, 66);
+        }
+    
+        .color, .colorbox1, .colorbox2, .colorbox3, .colorbox4{
+            width: 10%;
+            margin: 1px;
+            border: 1px solid rgb(85, 85, 85);
+        }
+    
+        .name, .namebox1, .namebox2 , .namebox3 , .namebox4{
+            width: 30%;
+            margin: 1px;
+            border: 1px solid rgb(85, 85, 85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .type, .typebox1, .typebox2, .typebox3, .typebox4{
+            width: 10%;
+            margin: 1px;
+            border: 1px solid rgb(85, 85, 85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .code, .codebox1, .codebox2, .codebox3, .codebox4{
+            width: 10%;
+            margin: 1px;
+            border: 1px solid rgb(85, 85, 85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .insert, .insertbox1, .insertbox2, .insertbox3, .insertbox4{
+            width: 20%;
+            margin: 1px;
+            border: 1px solid rgb(85, 85, 85);
+        }
+    
+        .delete, .deletebox1, .deletebox2, .deletebox3, .deletebox4{
+            width: 20%;
+            margin: 1px;
+            border: 1px solid rgb(85, 85, 85);
+        }
+    
+    
+    
+    
+    
+        .string1{
+            display: flex;
+            background-color: rgb(66, 66, 66);
+        }
+    
+        .string2{
+            display: flex;
+            background-color: rgb(66, 66, 66);
+        }
+    
+        .string3{
+            display: flex;
+            background-color: rgb(66, 66, 66);
+        }
+    
+        .string4{
+            display: flex;
+            flex-direction: row;
+            background-color: rgb(66, 66, 66);
+        }
+    
+    
+        .button{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    
+        button{
+            width: 270px;
+            height: 50px;
+            border-radius: 10px;
+            border-color: aqua;
+            background-color: rgb(49, 49, 49);
+        }
+    
+    
+    
+        .demo { 
+        position:relative; 
+        margin:0 auto; 
+        height: 100%;
+        width:100%;
+        display: block;
+    }
+    
+      .demo img { 
+        left: 0; 
+        position:absolute; 
+        top: 0; 
+    }
+    
+      .demo img.dva {opacity:0;filter:alpha(opacity=0);}
+      .demo:hover img.dva {opacity:1;filter:alpha(opacity=100);}
+      .demo:hover img.raz, .demo img.raz:hover {opacity:0;filter:alpha(opacity=0);}
+        
+    
+    
+    
+      .AddColorContainer{
+        width: 20%;
+        height: 600px;
+        border: 1px solid white;
+        display: block;
+        border-radius: 15px;
+        background-color: rgb(49, 49, 49);
+        margin-left: 40px;
+        
+      }
+    
+      .ColorTitle{
+        display: flex;
+        justify-content: center;
+      }
+    
+      .NameColor, .TypeColor{
+        display: flex;
+        margin-left: 15px;
+      }
+    
+      .ColorPanel{
+        width: 90%;
+        height: 30%;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    
+      .ButtonColor{
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+    
+    
+      *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    input[type="text"] {
+      font-family: inherit; /* 1 */
+      font-size: inherit; /* 1 */
+      line-height: inherit; /* 1 */
+      margin: 0; /* 2 */
+    }
+    
+    .NameColor, .TypeColor {
+      margin-bottom: 1rem;
+      display: flex;
+    }
+    /* стили для label */
+    .NameText, .NameType {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    /* стили для input */
+    .TextInput, .TypeSelect {
+      display: block;
+      width: 100%;
+      height: calc(2.25rem + 2px);
+      padding: 0.375rem 0.75rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #ffffff;
+      background-color: rgb(66, 66, 66);
+      background-clip: padding-box;
+      border: 1px solid #bdbdbd;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      margin-left: 10px;
+    }
+    
+    .tasks__title {
+      text-transform: uppercase;
+     }
+    
+    .tasks__list {
+      list-style: none;
+    }
+    
+    .tasks__item {
+      transition: background-color 0.5s;
+      margin-bottom: 10px;
+      padding: 5px;
+      text-align: center;
+      border-radius: 10px;
+      cursor: move;
+      transition: background-color 0.5s;
+    }
+    
+    .selected {
+      opacity: 0.6;
+    }
+    
+        
+</style>
+<body>
+
+
+
+    <div class="container tasks__list">
+        <div class="title"><h2>Таблица цветов</h2></div>    
+            <div class="listnames tasks__item">
+                <div class="color"><h4>Цвет</h6></div>
+                <div class="name"><h4>Название</h6></div>
+                <div class="type"><h4>Тип</h6></div>
+                <div class="code"><h4>Код</h6></div>
+                <div class="insert"><h4>Изменить</h6></div>
+                <div class="delete"><h4>Удалить</h6></div>
+            </div>
+            <div class="string1 tasks__item">
+                <div class="colorbox1" style="height:75px;"><input style="width:100%; height: 100%;" type="color" id="color1" name="color1" value="#e66465"></div>
+                <div class="namebox1"><label>Мятное утро</label></div>
+                <div class="typebox1"><label>base</label></div>
+                <div class="codebox1"><label>#86EAE9</label></div>
+                <div class="insertbox1"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Ручка.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\РучкаИндикатор.png"></a></div>
+                <div class="deletebox1"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Корзина.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\КорзинаИндикатор.png"></a></div>
+            </div>
+            <div class="string2 tasks__item">
+                <div class="colorbox2" style="height:75px;"><input style="width:100%; height: 100%;" type="color" id="color2" name="color2" value="#eee"></div>
+                <div class="namebox2"><label>Лавандовый пунш</label></div>
+                <div class="typebox2"><label>main</label></div>
+                <div class="codebox2"><label>#86EAE9</label></div>
+                <div class="insertbox2"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Ручка.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\РучкаИндикатор.png"></a></div>
+                <div class="deletebox2"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Корзина.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\КорзинаИндикатор.png"></a></div>
+            </div>
+            <div class="string3 tasks__item">
+                <div class="colorbox3" style="height:75px;"><input style="width:100%; height: 100%;" type="color" id="color3" name="color3" value="#f51cf5"></div>
+                <div class="namebox3"><label>Лавандовый пунш</label></div>
+                <div class="typebox3"><label>main</label></div>
+                <div class="codebox3"><label>#37C9EF</label></div>
+                <div class="insertbox3"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Ручка.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\РучкаИндикатор.png"></a></div>
+                <div class="deletebox3"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Корзина.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\КорзинаИндикатор.png"></a></div>
+            </div>
+            <div class="string4 tasks__item" id="box4" style="display:none;">
+                <div class="colorbox4" style="height:75px;"><input style="width:100%; height: 100%;" type="color" id="color4" name="color4" value="#744074"></div>
+                <div class="namebox4"></div>
+                <div class="typebox4"></div>
+                <div class="codebox4"></div>
+                <div class="insertbox4"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Ручка.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\РучкаИндикатор.png"></a></div>
+                <div class="deletebox4"><a class="demo" href="#"><img class="raz" src="C:\Users\VorobyovAO\Desktop\Test\img\Корзина.png"><img class="dva" src="C:\Users\VorobyovAO\Desktop\Test\img\КорзинаИндикатор.png"></a></div>
+            </div>
+        <div class="button"><button id="btAdd"><span>Добавить цвет</span></button></div>
+</div>
+
+<div class="AddColorContainer" id="AddColor" style="display:none;">
+    <div class="ColorTitle"><h2>Добавление цвета</h2></div>
+    <div class="NameColor">
+        <div class="NameText"><h4>Название цвета</h4></div>
+        <div class="TextInputBox"><input class="TextInput" type="text" name="login" id="login" placeholder="Введите название"></div>
+    </div>
+    <div class="TypeColor">
+        <div class="NameType"><h4>Выберите тип</h4></div>
+        <div class="TypeSelectBox">
+            <select class="TypeSelect" id="">
+                <option value="main">main</option>
+                <option value="base">base</option>
+                <option value="side">side</option>
+            </select>
+        </div>
+    </div>
+    <div class="ColorPanel"><input style="width:100%; height: 100%;" type="color" id="" name="" value="#eee"></div>
+    <div class="ButtonColor"><button><h4>Добавить</h4></button></div>
+</div>
+
+
+</body>
+
+<script>
+
+let content = document.getElementById("box4");
+let colorcontent = document.getElementById("AddColor");
+let show = document.getElementById("btAdd");
+
+show.addEventListener("click", () => {
+  if (content.style.display === "flex") {
+    content.style.display = "none"
+  } else {
+    content.style.display = "flex"
+  }
+
+  if (colorcontent.style.display === "inline") {
+    colorcontent.style.display = "none"
+  } else {
+    colorcontent.style.display = "inline"
+  }
+  
+})
+
+
+const tasksListElement = document.querySelector(`.tasks__list`);
+    const taskElements = tasksListElement.querySelectorAll(`.tasks__item`);
+
+    // Перебираем все элементы списка и присваиваем нужное значение
+    for (const task of taskElements) {
+        task.draggable = true;
+    }
+
+    tasksListElement.addEventListener(`dragstart`, (evt) => {
+        evt.target.classList.add(`selected`);
+    })
+
+    tasksListElement.addEventListener(`dragend`, (evt) => {
+        evt.target.classList.remove(`selected`);
+    });
+
+
+    tasksListElement.addEventListener(`dragover`, (evt) => {
+    // Разрешаем сбрасывать элементы в эту область
+    evt.preventDefault();
+
+    // Находим перемещаемый элемент
+    const activeElement = tasksListElement.querySelector(`.selected`);
+    // Находим элемент, над которым в данный момент находится курсор
+    const currentElement = evt.target;
+    // Проверяем, что событие сработало:
+    // 1. не на том элементе, который мы перемещаем,
+    // 2. именно на элементе списка
+    const isMoveable = activeElement !== currentElement &&
+        currentElement.classList.contains(`tasks__item`);
+
+    // Если нет, прерываем выполнение функции
+    if (!isMoveable) {
+        return;
+    }
+
+    // Находим элемент, перед которым будем вставлять
+    const nextElement = (currentElement === activeElement.nextElementSibling) ?
+      currentElement.nextElementSibling :
+      currentElement;
+
+    // Вставляем activeElement перед nextElement
+    tasksListElement.insertBefore(activeElement, nextElement);
+    });
+
+    const getNextElement = (cursorPosition, currentElement) => {
+  // Получаем объект с размерами и координатами
+  const currentElementCoord = currentElement.getBoundingClientRect();
+  // Находим вертикальную координату центра текущего элемента
+  const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
+
+  // Если курсор выше центра элемента, возвращаем текущий элемент
+  // В ином случае — следующий DOM-элемент
+  const nextElement = (cursorPosition < currentElementCenter) ?
+      currentElement :
+      currentElement.nextElementSibling;
+
+  return nextElement;
+};
+
+tasksListElement.addEventListener(`dragover`, (evt) => {
+  evt.preventDefault();
+
+  const activeElement = tasksListElement.querySelector(`.selected`);
+  const currentElement = evt.target;
+  const isMoveable = activeElement !== currentElement &&
+    currentElement.classList.contains(`tasks__item`);
+
+  if (!isMoveable) {
+    return;
+  }
+
+  // evt.clientY — вертикальная координата курсора в момент,
+  // когда сработало событие
+  const nextElement = getNextElement(evt.clientY, currentElement);
+
+  // Проверяем, нужно ли менять элементы местами
+  if (
+    nextElement && 
+    activeElement === nextElement.previousElementSibling ||
+    activeElement === nextElement
+  ) {
+    // Если нет, выходим из функции, чтобы избежать лишних изменений в DOM
+    return;
+  }
+
+  tasksListElement.insertBefore(activeElement, nextElement);
+});
+
+
+
+
+</script>
+</html>
